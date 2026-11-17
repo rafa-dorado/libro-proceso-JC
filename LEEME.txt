@@ -1,0 +1,42 @@
+EL PROCESO DEL TEQUILA · LA ROJEÑA — libro pop-up 3D
+=====================================================
+
+QUÉ HAY EN LA CARPETA
+  index.html   el libro (un solo archivo)
+  lib/         Three.js r160 y GSAP 3.12.5 (locales, sin CDN)
+  fonts/       las 4 tipografías (woff2) y sus licencias OFL
+Las tres cosas tienen que ir SIEMPRE juntas.
+
+CÓMO ABRIRLO
+  No funciona con doble clic: el navegador bloquea los módulos JavaScript
+  cargados desde archivo (file://). Hay que servir la carpeta:
+
+  a) Subirla tal cual a cualquier hosting estático y abrir la dirección.
+  b) En local, desde esta carpeta, con uno de estos comandos:
+       npx serve .
+       python -m http.server 8000
+     y abrir http://localhost:8000 (o la dirección que indique).
+
+PARÁMETROS DE LA DIRECCIÓN
+  ?debug=1   panel de control: fps, altura de la letra, deslizador de progreso
+  ?embed=1   para insertarlo en un iframe: no captura rueda ni teclas
+             hasta que se hace clic en el libro; Esc lo suelta
+  ?rm=1      fuerza el modo de movimiento reducido
+  ?p=3.2     abre directamente en un punto del recorrido (0 a 8)
+
+QUÉ ESTÁ COMPROBADO Y QUÉ NO
+  Comprobado en navegador de escritorio (Chromium), 1920x1080, 1280x800
+  y móvil simulado 375x812:
+    - las 8 tiradas sin desbordes de texto ni errores en consola
+    - letra del cuerpo legible: altura de x de 19 px a 1080p
+    - bloques A/B de las páginas largas, lector Aa, solapa de respuesta
+    - modo ?embed=1, arranque de unos 0,5 s
+  Sin comprobar todavía:
+    - 60 fps reales en un equipo físico (revisar con ?debug=1)
+    - iPhone / Safari y móviles Android reales
+    - la pausa del render con la pestaña oculta
+
+CONTENIDO
+  Fechas (1758, 1795, 1812) y textos de la NOM-006-SCFI-2012 tal como
+  los facilitó el equipo. Usa la marca José Cuervo / La Rojeña: necesita
+  la aprobación del cliente antes de publicarse.
